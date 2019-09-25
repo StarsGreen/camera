@@ -1,0 +1,53 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558 
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "g++ build",
+            "command": "/usr/bin/g++",
+            "args": [
+                "-g",
+                "-std=c++11", 
+//                "${file}",
+                "${workspaceRoot}/src/main.cpp",
+                "${workspaceRoot}/src/MaskLightBalance.cpp",
+                "${workspaceRoot}/src/PictureParameter.cpp",
+                "${workspaceRoot}/src/PictureProcess.cpp",
+                "-o","${workspaceRoot}/bin/Debug/imgprocess",
+ //               "${fileDirname}/${fileBasenameNoExtension}",
+                "-I", "${workspaceRoot}/include",
+                "-I", "/usr/local/include",
+                "-I", "/usr/local/include/opencv",
+                "-I", "/usr/local/include/opencv2",
+                "-L", "/usr/local/lib",
+                "-l","opencv_core",
+                "-l","opencv_imgproc",
+                "-l","opencv_imgcodecs",
+                "-l","opencv_video",
+                "-l","opencv_ml",
+                "-l","opencv_highgui",
+                "-l","opencv_objdetect",
+                "-l","opencv_flann",
+                "-l","opencv_imgcodecs",
+                "-l","opencv_photo",
+                "-l","opencv_videoio",
+                "-l","opencv_dnn",
+                "-l","opencv_shape",
+                "-l","opencv_stitching",
+                "-l","opencv_superres",
+                "-l","opencv_videostab",
+                "-l","opencv_calib3d",
+                "-l","opencv_features2d"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        }
+    ]
+}
